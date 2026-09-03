@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 x = np.linspace(0,9,10)
 y = np.arange(0,10)
 
-x2 = x[0:3]
+x2 = x[0:3] #only selecting certain values of x
 
 print('the first three entries are of x are', x2)
 
