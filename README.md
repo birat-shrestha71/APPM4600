@@ -15,14 +15,13 @@ Directory
 Homework
 
 - HW1
-  - HW1.py
+- HW2
+- HW3
+- ...
 
 Labs
 
 - Lab 1
-  - 3.2.py
-  - testDot.py
 - Lab 2
-  - test.py
 - Lab 3
-  - Lab3.py
+- ...
