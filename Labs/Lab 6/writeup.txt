@@ -1,0 +1,18 @@
+Condition for recomputing the Jacobian
+
+- Every few iterations change the Jacobian, this was done by a partner in group
+- Other partner is doing something iwth the Manhattan Norm
+- I am taking the difference between vectors x1 and x0 and computing a new jacobian depending on the difference before the tol check.
+
+Using a check where the norm is > 1e-3 it sits around the same as lazy newton but is marginally faster than lazy newton
+
+for the manhattan Norm, my partner got better results where the iterations were less and the time was faster than lazy newton
+
+with the iteration jacobian method, my partner noticed that it was the same amount of iterations but faster
+
+we are testing these different methods because there are multiple parts of the iteration that can be altered to help us achieve better results and applying different mathematical techniques that we know could improve results. Our partner that did Manhattan noticed better results using an evolved norm check, my function ran slightly faster for the test case given.
+
+My slackernewton is similar to my partners manhattan in concept of using norms for another/different check from lazy, the manhattan one is faster and less iterations than mine. For the jacobian iterations for this test case is slightly slower than lazy newton
+
+we did all of this to understand how interacting and changing specific math or iteration checks allows for different amount of computation and seeing how well it performs as these high dimension problems can be iffy and understanding what works in different cases
+
