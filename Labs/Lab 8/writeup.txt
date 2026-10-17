@@ -1,0 +1,2 @@
+the error graph follows from our linear interpolation where the function we are evaluating against is more linear our error is less but when its less linear we get more inaccuracy
+

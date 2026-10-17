@@ -34,8 +34,8 @@ from numpy.linalg import inv
 
 def driver():
     
-    f = lambda x: math.exp(x)
-    a = 0
+    f = lambda x: 1 / (1 + (10 * x)**2)
+    a = -1
     b = 1
     
     ''' create points you want to evaluate at'''
@@ -46,7 +46,7 @@ def driver():
     Nint = 10
     
     '''evaluate the linear spline'''
-    yeval = eval_lin_spline(xeval,a,b,f,Nint)
+    yeval = eval_lin_spline(xeval,Neval,a,b,f,Nint)
     
     ''' evaluate f at the evaluation points'''
     fex = f(xeval)
@@ -64,7 +64,10 @@ def driver():
     plt.legend()
     plt.show()
 
-    
+def line(f1, f2, x0, x1, alpha):
+    return f1 + ((f2 - f1) / (x1 - x0)) * (alpha - x0)
+
+
     
 def  eval_lin_spline(xeval,Neval,a,b,f,Nint):
 
@@ -80,19 +83,31 @@ def  eval_lin_spline(xeval,Neval,a,b,f,Nint):
         '''let n denote the length of ind'''
         
         '''temporarily store your info for creating a line in the interval of 
-         interest'''
-         a1= xint(jint)
-         fa1 = f(a1)
-         b1 = xint(jint+1)
-         fb1 = f(b1)
-        
+        interest'''
+        a1= xint[jint]
+        f1 = f(a1)
+        b1 = xint[jint+1]
+        f2 = f(b1)
+
+        ind = []
+
+        for i , x in enumerate(xeval):
+            if xint[jint] <= x <= xint [jint+1]:
+                ind.append(i)
+        n = len(ind)
+
+
         for kk in range(n):
            '''use your line evaluator to evaluate the lines at each of the points 
            in the interval'''
            '''yeval(ind(kk)) = call your line evaluator at xeval(ind(kk)) with 
            the points (a1,fa1) and (b1,fb1)'''
+           yeval[ind[kk]] = line(f1,f2,a1,b1,xeval[ind[kk]])
            
-           
+
+    return yeval
+
+
 if __name__ == '__main__':
       # run the drivers only if this is called from the command line
       driver()               
