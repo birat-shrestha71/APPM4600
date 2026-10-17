@@ -55,7 +55,7 @@ for N in range(2, 26):
     if np.abs(p).max() > 100:
         break
 
-for N in [500]:
+for N in [8, 14, 20, 30, 40, 60, 100]:
     j = np.arange(1,N+1)
     x = np.cos(((2*j - 1) * np.pi) / (2 * N))    
     y = f(x)
