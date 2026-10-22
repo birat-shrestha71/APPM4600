@@ -4,6 +4,7 @@ import numpy.linalg as la
 import math
 from scipy.integrate import quad
 from eval_leg import eval_leg
+from eval_leg import t
 def driver():
 
 #  function you want to approximate
@@ -13,7 +14,7 @@ def driver():
     a = -1
     b = 1
 # weight function    
-    w = lambda x: 1.
+    w = lambda x: 1 / np.sqrt(1 - x**2)
 
 # order of approximation
     n = 2
@@ -51,12 +52,12 @@ def eval_legendre_expansion(f,a,b,w,n,x):
 
 #  Evaluate all the Legendre polynomials at x that are needed
 # by calling your code from prelab 
-  p = eval_leg(n,x)
+  p = t(n,x)
   # initialize the sum to 0 
   pval = 0.0    
   for j in range(0,n+1):
       # make a function handle for evaluating phi_j(x)
-      phi_j = lambda x: eval_leg(j,x)[j]
+      phi_j = lambda x: t(j,x)[j]
       # make a function handle for evaluating phi_j^2(x)*w(x)
       phi_j_sq = lambda x: (phi_j(x)**2) * w(x)
       # use the quad function from scipy to evaluate normalizations
