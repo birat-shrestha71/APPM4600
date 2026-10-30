@@ -39,7 +39,7 @@ def driver():
     nerr = norm(fex-yeval)
     print('nerr = ', nerr)
     
-    plt.figure()    
+    plt.figure()
     plt.plot(xeval,fex,'ro-',label='exact function')
     plt.plot(xeval,yeval,'bs--',label='natural spline')
     plt.plot(xeval,yeval2,'gs--',label='clamped spline') 
